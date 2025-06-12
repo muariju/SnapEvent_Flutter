@@ -1,0 +1,62 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "com.google.gms.google-services" // Keep this before Flutter plugin
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.example.snapevent"
+    compileSdkVersion 34
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    defaultConfig {
+        applicationId "com.example.snapevent"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode flutter.versionCode.toInteger()
+        versionName flutter.versionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            // Add these for release optimization
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22" // Updated to jdk8 variant
+    
+    // Firebase BoM (Bill of Materials) - manages versions automatically
+    implementation platform('com.google.firebase:firebase-bom:33.12.0')
+    
+    // Firebase services you're using
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth-ktx' // KTX version for Kotlin
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    
+    // Required for older Android devices
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
+
+apply plugin: 'com.google.gms.google-services'

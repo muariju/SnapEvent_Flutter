@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225714632666",
+    "project_id": "snapevent-e181c",
+    "storage_bucket": "snapevent-e181c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225714632666:android:2a3e1d3fbeb2a00375b2e3",
+        "android_client_info": {
+          "package_name": "com.example.snapevent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb19SJ2_G1tGPzGbxV7MzytK8tPKBU6TI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
